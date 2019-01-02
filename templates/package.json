@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "email": "andre.santos0906@gmail.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "",
+  "author": "Andre Santos",
+  "license": "mit",
+  "scripts": {
+    "dev": "webpack"
+  }
+}
