@@ -94,8 +94,14 @@ function copyFiles() {
   // default html
   fs.copyFileSync(`./templates/index.html`, `./${dir}/index.html`);
 
-  //default js
-  fs.copyFileSync(`./templates/index.js`, `./${dir}/src/index.js`);
+  // default ts
+  fs.copyFileSync(`./templates/index.ts`, `./${dir}/src/index.ts`);
+
+  // default scss
+  fs.copyFileSync(`./templates/index.scss`, `./${dir}/src/index.scss`);
+
+  // tsconfig
+  fs.copyFileSync(`./templates/tsconfig.json`, `./${dir}/tsconfig.json`);
 }
 
 async function init() {
@@ -112,13 +118,17 @@ async function init() {
 
   const packages = [
     'webpack',
+    'typescript',
     'webpack-cli',
     'html-webpack-plugin',
     'webpack-bundle-analyzer',
     'ts-loader',
+    'mini-css-extract-plugin',
     'sass-loader',
-    'node-sass'
-  ]
+    'node-sass',
+    'style-loader',
+    'css-loader'
+  ];
 
   webpackSetup(options, packages);
 }

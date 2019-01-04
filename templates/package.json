@@ -8,6 +8,7 @@
   "author": "Andre Santos",
   "license": "mit",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production"
   }
 }
