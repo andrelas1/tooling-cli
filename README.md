@@ -1,6 +1,6 @@
 # WHAT IS THIS?
 
-This are my preferred tools for developing a frontend project. Their goal is to automate code quality tasks, like linting and type checking.
+This is a simple NodeJS script to generate boilerplate containing tools and their respective configurations for a frontend project.
 
 # TOOLS
 
@@ -14,17 +14,16 @@ This are my preferred tools for developing a frontend project. Their goal is to 
 - Jest
 - SASS
 
-## Webpack ##
+## Webpack
+
 - Inject the javascript bundle (HtmlWebpackPlugin)
+- Separate styles to a stylesheet and inject into the HTML
 - Dev server with HRM
 - Source maps
-- Webpack bundle analyzer
-- Code splitting
 - TSLoader
 - SASSLoader
 
-
-## What need to be done ##
+## What need to be done
 
 - CLI to generate all the boilerplate
 - Start with a NPM package
