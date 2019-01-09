@@ -1,3 +1,8 @@
+#!/usr/bin/env node
+
+// chmod u+x index.js
+// ln -s /Users/andreluisasantos/workspace/tooling/index.js andrelas1-tsp
+
 // Node JS
 const {
   exec,

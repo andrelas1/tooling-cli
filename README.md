@@ -22,8 +22,3 @@ This is a simple NodeJS script to generate boilerplate containing tools and thei
 - Source maps
 - TSLoader
 - SASSLoader
-
-## What need to be done
-
-- CLI to generate all the boilerplate
-- Start with a NPM package
