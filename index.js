@@ -10,22 +10,26 @@ const {
   spawnSync,
   execSync
 } = require("child_process");
-
 const {
   createInterface
 } = require("readline");
-
 const fs = require("fs");
-
 const EventEmitter = require("events");
+const path = require('path');
 
 class CustomEmitter extends EventEmitter {}
 
 const emitter = new CustomEmitter();
 
+const srcDirectory = path.join(__dirname);
+
 // Create project directory
-function createDir(directory) {
-  execSync(`mkdir -p ${directory}/src`);
+function createDir(directoryName) {
+  if (directoryName) {
+    execSync(`mkdir -p ${directoryName}/src`);
+  } else {
+    console.error('no directory name!!!!');
+  }
 }
 
 const answers = [];
@@ -95,35 +99,36 @@ const options = {
 
 function copyFiles() {
   console.log("DIRECTORY = ", dir);
+  console.log('srcDIRECTORy', srcDirectory);
   // webpack config
-  fs.copyFileSync(`templates/webpack.config.js`, `${dir}/webpack.config.js`);
+  fs.copyFileSync(`${srcDirectory}/templates/webpack.config.js`, `${dir}/webpack.config.js`);
 
   // default html
-  fs.copyFileSync(`templates/index.html`, `${dir}/index.html`);
+  fs.copyFileSync(`${srcDirectory}/templates/index.html`, `${dir}/index.html`);
 
   // ts files
-  fs.copyFileSync(`templates/index.ts`, `${dir}/src/index.ts`);
-  fs.copyFileSync(`templates/test-hmr.ts`, `${dir}/src/test-hmr.ts`);
+  fs.copyFileSync(`${srcDirectory}/templates/index.ts`, `${dir}/src/index.ts`);
+  fs.copyFileSync(`${srcDirectory}/templates/test-hmr.ts`, `${dir}/src/test-hmr.ts`);
 
 
   // jest config file
-  fs.copyFileSync(`templates/jest.config.js`, `${dir}/jest.config.js`);
+  fs.copyFileSync(`${srcDirectory}/templates/jest.config.js`, `${dir}/jest.config.js`);
 
   // default scss
-  fs.copyFileSync(`templates/index.scss`, `${dir}/src/index.scss`);
+  fs.copyFileSync(`${srcDirectory}/templates/index.scss`, `${dir}/src/index.scss`);
 
   // tsconfig
-  fs.copyFileSync(`templates/tsconfig.json`, `${dir}/tsconfig.json`);
+  fs.copyFileSync(`${srcDirectory}/templates/tsconfig.json`, `${dir}/tsconfig.json`);
 
   // tslint
-  fs.copyFileSync(`templates/tslint.json`, `${dir}/tslint.json`);
+  fs.copyFileSync(`${srcDirectory}/templates/tslint.json`, `${dir}/tslint.json`);
 
   // gitignore
-  fs.copyFileSync(`templates/.gitignore`, `${dir}/.gitignore`);
+  fs.copyFileSync(`${srcDirectory}/templates/.gitignore`, `${dir}/.gitignore`);
 
   // commitlint
   fs.copyFileSync(
-    `templates/commitlint.config.js`,
+    `${srcDirectory}/templates/commitlint.config.js`,
     `${dir}/commitlint.config.js`
   );
 }
